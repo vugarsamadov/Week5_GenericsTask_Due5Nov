@@ -1,0 +1,14 @@
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\bin\Debug\net6.0\Week5_GenericsTask_Due5Nov.exe
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\bin\Debug\net6.0\Week5_GenericsTask_Due5Nov.deps.json
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\bin\Debug\net6.0\Week5_GenericsTask_Due5Nov.runtimeconfig.json
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\bin\Debug\net6.0\Week5_GenericsTask_Due5Nov.dll
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\bin\Debug\net6.0\Week5_GenericsTask_Due5Nov.pdb
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.AssemblyInfoInputs.cache
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.AssemblyInfo.cs
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.csproj.CoreCompileInputs.cache
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.dll
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\refint\Week5_GenericsTask_Due5Nov.dll
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.pdb
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\Week5_GenericsTask_Due5Nov.genruntimeconfig.cache
+C:\Users\vuqar\Desktop\Code\WPF\Week5_GenericsTask_Due5Nov\Week5_GenericsTask_Due5Nov\obj\Debug\net6.0\ref\Week5_GenericsTask_Due5Nov.dll
