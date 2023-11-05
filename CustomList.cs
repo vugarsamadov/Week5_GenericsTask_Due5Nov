@@ -12,23 +12,52 @@ namespace Week5_GenericsTask_Due5Nov
     {
         private T[] _array = new T[0];
         private int _size = 0;
-        private int Capacity { get => _array.Length;}
+        private static T[] s_emptyArray = new T[0];
+        public int Count { get =>_size; }
+        private int Capacity 
+        { 
+            get => _array.Length;
 
-        //public int Count { ; }
-
-        public CustomList()
-        {
-            
+            set 
+            {
+                if (value < _size)
+                    ExceptionHelper.ThrowCustomIndexOutOfBoundsException();
+                if (value != _array.Length)
+                {
+                    if(value > 0)
+                    {
+                        Array.Resize<T>(ref _array, value);
+                        return;
+                    }
+                    _array = CustomList<T>.s_emptyArray;
+                }
+            }
         }
+
+
+        public CustomList() { }
+
+        public CustomList(int capacity) 
+        {
+            if(capacity < 0)
+                ExceptionHelper.ThrowCustomIndexOutOfBoundsException();
+            if(capacity == 0)
+            {
+                _array = CustomList<T>.s_emptyArray;
+                return;
+            }
+            _array = new T[capacity];
+        }
+
 
         public void Add(T item)
         {
             var arrayLength = _array.Length;
-            var size = _size;
 
-            if(size < arrayLength)
+            if(_size < arrayLength)
             {
                 _array[_size] = item;
+                _size += 1;
                 return;
             }
             AddAndResize(item);
@@ -37,7 +66,7 @@ namespace Week5_GenericsTask_Due5Nov
         private void AddAndResize(T item)
         {
             Grow();
-            _array[_size++] = item;
+            Add(item);
         }
 
         private void Grow()
@@ -47,8 +76,10 @@ namespace Week5_GenericsTask_Due5Nov
             if (capacity > Array.MaxLength)
                 capacity = Array.MaxLength;
 
-            if(capacity > Capacity)
-                Array.Resize<T>(ref _array,capacity);
+            if(capacity < _size)
+                capacity = _size;
+
+            Capacity = capacity;
         }
 
         public void Clear() 
@@ -59,7 +90,11 @@ namespace Week5_GenericsTask_Due5Nov
             }
             else
             {
-                Array.Clear(_array, 0, _size);
+                if(_size>0)
+                {
+                    Array.Clear(_array, 0, _size);
+                }
+                _size = 0;
             }
         }
 
@@ -70,31 +105,40 @@ namespace Week5_GenericsTask_Due5Nov
 
         public bool Remove(T itemToRemove)
         {
-            if (_array.Length == 0)
+            if (_size == 0)
                 return false;
+            
+            int indx = IndexOf(itemToRemove);
 
-            for (int i = 0; i < _size; i++)
+            if(indx >= 0)
             {
-                if (_array[i] != null && _array[i].Equals(itemToRemove))
-                {
-                    ShiftBack(1,i,_size-1);
-                    
-                    if (!typeof(T).IsValueType)
-                        _array[_size - 1] = default;
-
-                    _size--;
-                    
-                    return true;
-                }
+                return RemoveAt(indx);
             }
             return false;
         }
 
-        private void ShiftBack(int stepToShift,int startIdx, int endIdx)
+        public bool RemoveAt(int indx)
         {
-            for (int i = endIdx; i > startIdx; i--)
+            if (indx >= _size)
+                ExceptionHelper.ThrowCustomIndexOutOfBoundsException();
+            if (indx == -1)
+                return false;
+
+            ShiftBack(indx, _size - 1);
+
+            if (!typeof(T).IsValueType)
+                _array[_size - 1] = default(T);
+
+            _size--;
+
+            return true;
+        }
+
+        private void ShiftBack(int startIdx, int endIdx)
+        {
+            for (int i = startIdx; i < endIdx; i++)
             {
-                _array[i-1] = _array[i];
+                _array[i] = _array[i+1];
             }
         }
 
@@ -132,10 +176,30 @@ namespace Week5_GenericsTask_Due5Nov
             return -1;
         }
 
+        public T Get(int indx)
+        {
+            if (indx < 0 || indx >= _size)
+                ExceptionHelper.ThrowCustomIndexOutOfBoundsException();
+            return _array[indx];
+        }
+
+        public void Set(int indx, T value)
+        {
+            if (indx < 0 || indx >= _size)
+                ExceptionHelper.ThrowCustomIndexOutOfBoundsException();
+            _array[indx] = value;
+        }
+
+        public T this[int indx]
+        {
+            get => Get(indx);
+            set => Set(indx, value);
+        }
+
         public override string ToString()
         {
             if (_size == 0)
-                return "<array is empty>";
+                return "<- array is empty ->";
 
             StringBuilder stringBuilder = new StringBuilder();
             for(int i =0;i < _size; i++)
